@@ -13,10 +13,12 @@ let config = {
   }
 };
 
-axios(config)
-.then((response) => {
-  console.log(JSON.stringify(response.data));
-})
-.catch((error) => {
-  console.log(error);
-});
+module.exports = acc_token = () => {
+    axios(config)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}

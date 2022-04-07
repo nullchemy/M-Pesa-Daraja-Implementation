@@ -1,8 +1,8 @@
-//access_token Endpoint https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials
 const axios = require('axios');
+require('dotenv').config()
 
-const key = 'a5YkD1vMqhRvZ9yDlbwlW0PCTbk08fBk'
-const secret = 'IP5STQzreXu4SGBQ'
+const key = process.env.CONSUMER_KEY
+const secret = process.env.CONSUMER_SECRET
 let authkey = Buffer.from(key+':'+secret).toString('base64')
 
 let config = {

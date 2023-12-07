@@ -23,7 +23,7 @@
     ]);
     $cred_data = array(
         "InitiatorName" => "testapi",
-        "SecurityCredential" => "rBdPzxsmVVhg2TTI+JJACgyIxqT0bCC6BlZrFCS76WR4HegPpuThCggSf3TbBUlvaYk5IvguKm70BArqa7Hm/+QhUxhdEnrPCOJIoISMRZrX66BLBRodQoRXyHbjBjsYg2/Dfo9tNSGyikgZbZV7Wmcg3fH8N6F+rqCZvpgmRL7ij0xvp7rnaN2L6YkxSCrKSw1IQ4d9vlMTWUzDeHtCXIU5N5N5OlL8zpTof/rwnM2su9D4XtyF7YJYVpjdBTNFn8vShZQxcXtGRRIHw+Tncjf1tMnUgz4hKryD8Occa0NmRu2Jc+5VWBXb0bI7BSPk0gKtlwU/Dta/PTmWLm+haA==",
+        "SecurityCredential" => "",
         "CommandID" => "BusinessPayment",
         "Amount" => 1,
         "PartyA" => 600998,

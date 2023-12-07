@@ -1,35 +1,42 @@
-const axios = require('axios');
-const access_token = require('access_token')
+import axios from 'axios'
+import MpesaEndpoints from './urls.js'
+import access_token from './access_token.js'
 
-let data = JSON.stringify({
-  "Initiator": "",
-  "SecurityCredential": "",
-  "CommandID": "",
-  "SenderIdentifierType": "",
-  "RecieverIdentifierType": "",
-  "Amount": "",
-  "PartyA": "",
-  "PartyB": "",
-  "AccountReference": "",
-  "Remarks": "",
-  "QueueTimeOutURL": "",
-  "ResultURL": ""
-});
+const b2b = async () => {
+  const endpoints = new MpesaEndpoints()
+  const acc_tok = await access_token()
+  try {
+    let data = JSON.stringify({
+      Initiator: '',
+      SecurityCredential: '',
+      CommandID: '',
+      SenderIdentifierType: '',
+      RecieverIdentifierType: '',
+      Amount: '',
+      PartyA: '',
+      PartyB: '',
+      AccountReference: '',
+      Remarks: '',
+      QueueTimeOutURL: '',
+      ResultURL: '',
+    })
 
-let config = {
-  method: 'post',
-  url: 'https://sandbox.safaricom.co.ke/mpesa/b2b/v1/paymentrequest',
-  headers: { 
-    'Authorization': 'Bearer '+access_token,
-    'Content-Type': 'application/json', 
-  },
-  data : data
-};
+    let config = {
+      method: 'post',
+      url: endpoints.b2b,
+      headers: {
+        Authorization: 'Bearer ' + acc_tok,
+        'Content-Type': 'application/json',
+      },
+      data: data,
+    }
 
-axios(config)
-.then((response) => {
-  console.log(JSON.stringify(response.data));
-})
-.catch((error) => {
-  console.log(error);
-});
+    const res = axios(config)
+    return res.data
+  } catch (err) {
+    console.log(err)
+    return { stack: err }
+  }
+}
+
+export default b2b
